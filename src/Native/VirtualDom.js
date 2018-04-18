@@ -1904,6 +1904,11 @@ return {
 	lazy: F2(lazy),
 	lazy2: F3(lazy2),
 	lazy3: F4(lazy3),
+	lazy4: F5(lazy4),
+	lazy5: F6(lazy5),
+	lazy6: F7(lazy6),
+	lazy7: F8(lazy7),
+	lazy8: F9(lazy8),
 	keyedNode: F3(keyedNode),
 
 	program: program,
