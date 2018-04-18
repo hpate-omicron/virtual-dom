@@ -143,7 +143,40 @@ function lazy3(fn, a, b, c)
 	});
 }
 
+function lazy4(fn, a, b, c, d)
+{
+	return thunk(fn, [a,b,c,d], function() {
+		return A4(fn, a, b, c, d);
+	});
+}
 
+function lazy5(fn, a, b, c, d, e)
+{
+	return thunk(fn, [a,b,c,d,e], function() {
+		return A5(fn, a, b, c, d, e);
+	});
+}
+
+function lazy6(fn, a, b, c, d, e, f)
+{
+	return thunk(fn, [a,b,c,d,e,f], function() {
+		return A6(fn, a, b, c, d, e, f);
+	});
+}
+
+function lazy7(fn, a, b, c, d, e, f, g)
+{
+	return thunk(fn, [a,b,c,d,e,f,g], function() {
+		return A7(fn, a, b, c, d, e, f, g);
+	});
+}
+
+function lazy8(fn, a, b, c, d, e, f, g, h)
+{
+	return thunk(fn, [a,b,c,d,e,f,g, h], function() {
+		return A8(fn, a, b, c, d, e, f, g, h);
+	});
+}
 
 // FACTS
 
