@@ -622,13 +622,13 @@ function diffHelp(a, b, patches, index)
 					var differences = [];
 					while (i--)
 					{
-						differences.push([
-							DeepDiff(aArgs[i], bArgs[i]),
-							'object equality = ' + aArgs[i] === bArgs[i]
-						]);
+						differences.push(
+							// DeepDiff(aArgs[i], bArgs[i]),
+							 aArgs[i] === bArgs[i]
+						);
 					}
 					console.log('Unable to lazy render', a.node.facts.id || a.node.facts.className || b,
-						differences
+						differences.reverse()
 					)
 				}
 			}
