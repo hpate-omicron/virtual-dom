@@ -613,8 +613,24 @@ function diffHelp(a, b, patches, index)
 			}
 			if (same)
 			{
+				console.log('Lazy rendering', a.node.facts.id || a.node.facts.className || b)
 				b.node = a.node;
 				return;
+			} else {
+				if (window.DEBUG_DIFF_ACTIVE) {
+					var i = aArgs.length;
+					var differences = [];
+					while (i--)
+					{
+						differences.push([
+							DeepDiff(aArgs[i], bArgs[i]),
+							'object equality = ' + aArgs[i] === bArgs[i]
+						]);
+					}
+					console.log('Unable to lazy render', a.node.facts.id || a.node.facts.className || b,
+						differences
+					)
+				}
 			}
 			b.node = b.thunk();
 			var subPatches = [];
@@ -1439,6 +1455,10 @@ function makeProgram(flagChecker)
 				else
 				{
 					debugSetup(A2(debugWrap, debugMetadata, impl), object, moduleName, checker);
+					window.DEBUG_DIFF_ACTIVE = true;
+					var differ = document.createElement('script');
+					differ.src = "https://cdn.jsdelivr.net/npm/deep-diff@1/dist/deep-diff.min.js";
+					document.head.appendChild(differ);
 				}
 			};
 		};
